@@ -1,20 +1,18 @@
 package com.hoult.mr.job;
 
 import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.NullWritable;
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 
-public class JobReducer extends Reducer<Text, LongWritable, LongWritable, IntWritable> {
+public class JobReducer  extends
+        Reducer<IntWritable, IntWritable, IntWritable, IntWritable> {
 
-    private int rank = 0;
+    private int index = 0;//全局排序计数器
     @Override
-    protected void reduce(Text key, Iterable<LongWritable> values,
+    protected void reduce(IntWritable key, Iterable<IntWritable> values,
                           Context context) throws IOException, InterruptedException {
-        for (LongWritable value : values)
-            context.write(value, new IntWritable(++rank));
+        for (IntWritable value : values)
+            context.write(new IntWritable(++index), value);
     }
 }
