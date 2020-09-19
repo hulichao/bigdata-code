@@ -17,7 +17,7 @@ public class SpeakerDriver {
     public static void main(String[] args) throws IllegalArgumentException,
             IOException, ClassNotFoundException, InterruptedException {
 // 输入输出路径需要根据自己电脑上实际的输入输出路径设置
-        args = new String[] { "/home/hulichao/input/", "/home/hulichao/output/" };
+        args = new String[] { "data/mr-writable-speak/speak.data", "data/mr-writable-speak/output" };
 // 1 获取配置信息，或者job对象实例
         Configuration configuration = new Configuration();
         Job job = Job.getInstance(configuration);

@@ -26,7 +26,7 @@ public class SpeakBean implements Writable {
         dataOutput.writeLong(this.sumDuration);
     }
 
-    //构造
+    //空参构造方法，反射时候必须有
     public SpeakBean() {
     }
 
@@ -80,11 +80,11 @@ public class SpeakBean implements Writable {
 
     @Override
     public String toString() {
-        return "SpeakBean{" +
-                "selfDuration=" + selfDuration +
-                ", thirdPartDuration=" + thirdPartDuration +
-                ", deviceId='" + deviceId + '\'' +
-                ", sumDuration=" + sumDuration +
+        return "{" +
+                "selfDuration:" + selfDuration +
+                ", thirdPartDuration:" + thirdPartDuration +
+                ", deviceId:'" + deviceId + '\'' +
+                ", sumDuration:" + sumDuration +
                 '}';
     }
 }

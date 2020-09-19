@@ -5,7 +5,6 @@ import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
-import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -25,11 +24,11 @@ public class JobDriver extends Configured implements Tool {
         job.setJarByClass(JobDriver.class);
 
         //设置读取文件的路径，都是从HDFS中读取。读取文件路径从脚本文件中传进来
-        FileInputFormat.addInputPath(job,new Path(args[0]));
-//        FileInputFormat.addInputPath(job,new Path("/home/hulichao/input"));
+//        FileInputFormat.addInputPath(job,new Path(args[0]));
+        FileInputFormat.addInputPath(job,new Path("data/job/"));
         //设置mapreduce程序的输出路径，MapReduce的结果都是输入到文件中
-        FileOutputFormat.setOutputPath(job,new Path(args[1]));
-//        FileOutputFormat.setOutputPath(job,new Path("/home/hulichao/output"));
+//        FileOutputFormat.setOutputPath(job,new Path(args[1]));
+        FileOutputFormat.setOutputPath(job,new Path("data/job/output"));
         job.setInputFormatClass(KeyValueTextInputFormat.class);
         //设置比较器，用于比较数据的大小，然后按顺序排序，该例子主要用于比较两个key的大小
         job.setSortComparatorClass(KeyComparator.class);
@@ -55,7 +54,7 @@ public class JobDriver extends Configured implements Tool {
     }
     public static void main(String[] args)throws Exception{
 
-        int exitCode = ToolRunner.run(new JobDriver(), new String[] {"/Users/hulichao/input", "/Users/hulichao/output", "/Users/hulichao/output2"});
+        int exitCode = ToolRunner.run(new JobDriver(), new String[] {"data/job/", "data/job/part1", "data/job/part2"});
         System.exit(exitCode);
     }
 }

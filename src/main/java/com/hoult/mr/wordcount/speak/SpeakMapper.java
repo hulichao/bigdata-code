@@ -1,5 +1,6 @@
 package com.hoult.mr.wordcount.speak;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -20,6 +21,8 @@ public class SpeakMapper extends Mapper<LongWritable, Text, Text,
         String line = value.toString();
     // 2 切割字段
         String[] fields = line.split("\t");
+        String out = StringUtils.join(fields, ",");
+        System.out.println(out);
         // 3 封装对象
     // 取出设备id
         String deviceId = fields[1];
