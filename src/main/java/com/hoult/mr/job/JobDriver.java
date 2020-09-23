@@ -13,8 +13,8 @@ public class JobDriver extends Configured implements Tool {
     @Override
     public int run(String[] args) throws Exception {
         if (args.length != 2) {
-            System.err.println("<input> <output>");
-            System.exit(127);
+            System.err.println("input-path output-path");
+            System.exit(1);
         }
 
         Job job = Job.getInstance(getConf());
@@ -23,6 +23,9 @@ public class JobDriver extends Configured implements Tool {
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         job.setMapperClass(JobMapper.class);
+
+        //设置自定义分区器,输出多文件全局排序时使用
+//        job.setPartitionerClass(JobPartitioner.class);
         job.setReducerClass(JobReducer.class);
         job.setMapOutputKeyClass(IntWritable.class);
         job.setMapOutputValueClass(IntWritable.class);
@@ -30,14 +33,15 @@ public class JobDriver extends Configured implements Tool {
         job.setOutputValueClass(NullWritable.class);
         //使用一个reduce来排序
         job.setNumReduceTasks(1);
-        job.setJobName("TotalSort");
+//        job.setNumReduceTasks(10);
+        job.setJobName("JobDriver");
         return job.waitForCompletion(true) ? 0 : 1;
     }
 
     public static void main(String[] args)throws Exception{
 
 //        int exitCode = ToolRunner.run(new JobDriver(), args);
-        int exitCode = ToolRunner.run(new JobDriver(), new String[] {"data/job/", "data/job/output"});
+        int exitCode = ToolRunner.run(new JobDriver(), new String[] {"data/job/input", "data/job/output"});
         System.exit(exitCode);
     }
 }
