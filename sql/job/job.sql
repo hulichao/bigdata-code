@@ -10,7 +10,7 @@ GROUP BY team,
          gid
 HAVING count(*)>=3
 
-## 2.
+## 2.使用lag 和 lead窗口函数求出前后的price,如果都大于则是波谷,如果都小于则是波峰
 SELECT id,
        TIME,
        price,
