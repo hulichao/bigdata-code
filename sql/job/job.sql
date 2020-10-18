@@ -28,7 +28,7 @@ FROM
           lag(price) OVER (PARTITION BY id
                            ORDER BY TIME) lag_price,
                           lead(price) OVER (PARTITION BY id
-                                            ORDER BY TIME) lead_price
+                                            ORDER BY unix_timestamp(TIME, 'HH:mm')) lead_price
    FROM t2) tmp
 WHERE (price > lag_price
        AND price > lead_price)
