@@ -39,7 +39,7 @@ load data local inpath '/root/impala_data/clicklog.dat' into table user_clicklog
 ```
 
 --使用Impala sql完成指标统计...
--- 思路(与hive最后一题类似):
+-- (与hive最后一题类似):
 --1.上lag,日期函数 将小于30分钟的整为一组,
 --2 上row_number排序函数
 SELECT user_id,
