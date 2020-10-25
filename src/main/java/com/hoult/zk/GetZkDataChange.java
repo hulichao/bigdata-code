@@ -2,7 +2,6 @@ package com.hoult.zk;
 
 import org.I0Itec.zkclient.IZkDataListener;
 import org.I0Itec.zkclient.ZkClient;
-import scala.Int;
 
 /**
  * 使用监听器监听节点数据的变化
