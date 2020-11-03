@@ -19,10 +19,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Application {
+    //数据库配置连接
     private static HikariDataSource hikariDataSource;
 
+    //Zk客户端
     private static ZkClient zkClient;
 
+    //数据操作对象
     private static ObjectMapper mapper = new ObjectMapper();
 
     /**
@@ -43,6 +46,7 @@ public class Application {
         configHikariSource();
     }
 
+    //初始化zk
     private static void initZk() {
 
         zkClient = new ZkClient("centos:8521");
@@ -90,6 +94,7 @@ public class Application {
         }
     }
 
+    //执行测试sql
     private static void executeTestSQL() throws SQLException {
 
         Connection connection = hikariDataSource.getConnection();
@@ -104,6 +109,7 @@ public class Application {
         }
     }
 
+    //更新数据库信息
     private static void updateHikariConfig(JDBCConfig myConfig) {
 
         HikariConfig config = new HikariConfig();
