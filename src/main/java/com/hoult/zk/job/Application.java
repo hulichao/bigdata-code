@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.Data;
+import lombok.Getter;
 import lombok.ToString;
 import org.I0Itec.zkclient.IZkDataListener;
 import org.I0Itec.zkclient.ZkClient;
@@ -13,11 +14,13 @@ import org.I0Itec.zkclient.serialize.ZkSerializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@SpringBootApplication
 public class Application {
     //数据库配置连接
     private static HikariDataSource hikariDataSource;
@@ -37,7 +40,7 @@ public class Application {
      *
      * @param args 参数
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         SpringApplication.run(Application.class, args);
 
@@ -55,7 +58,7 @@ public class Application {
 
         zkClient.subscribeDataChanges("/jdbc", new IZkDataListener() {
 
-            public void handleDataChange(String path, Object data) {
+            public void handleDataChange(String path, Object data) throws IOException {
 
                 System.out.println(path + " data is changed, new data " + data);
 
@@ -80,7 +83,7 @@ public class Application {
      * 2. 更新 hikari 配置
      * 3. 执行测试 sql
      */
-    private static void configHikariSource(){
+    private static void configHikariSource() throws IOException {
 
         JDBCConfig myConfig = getJDBCConfig();
 
@@ -123,7 +126,7 @@ public class Application {
         hikariDataSource = new HikariDataSource(config);
     }
 
-    private static JDBCConfig getJDBCConfig() {
+    private static JDBCConfig getJDBCConfig() throws IOException {
 
         Object data = zkClient.readData("/jdbc");
 
