@@ -97,10 +97,6 @@
             <version>6.14.3</version>
             <scope>test</scope>
     </dependency>
-=======
-
-
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -135,8 +131,6 @@
             <version>8.0.11</version>
         </dependency>
 
-
->>>>>>> bd4d8da75c7e492e99399d3010eaa04ec871ff7b
     </dependencies>
     <!--maven打包插件 -->
     <build>
