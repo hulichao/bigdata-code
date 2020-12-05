@@ -36,7 +36,7 @@ public class CustomerInterceptor implements Interceptor {
         final String[] bodyArr = eventBody.split("\\s+");
         try {
             String jsonStr = bodyArr[6];
-            System.out.println("jsonStr:" + jsonStr);
+//            System.out.println("jsonStr:" + jsonStr);
             if (Strings.isNullOrEmpty(jsonStr)) {
                 return null;
             }
