@@ -7,6 +7,6 @@ object RddBase {
     val conf = new SparkConf().setAppName("wordcount")
     val sc = new SparkContext(conf)
 
-    val input = sc.textFile("/home/cjj/testfile/helloSpark.txt")
+    val input = sc.textFile("data/wc/wc.txt")
   }
 }
