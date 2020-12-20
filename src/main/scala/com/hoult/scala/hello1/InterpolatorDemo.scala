@@ -1,4 +1,4 @@
-package com.hoult.scala.hello
+package com.hoult.scala.hello1
 
 /**
  *  插值器，s f raw

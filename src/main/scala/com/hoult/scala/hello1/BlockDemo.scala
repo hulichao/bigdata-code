@@ -1,4 +1,4 @@
-package com.hoult.scala.hello
+package com.hoult.scala.hello1
 
 /**
  * {} 表达式，可以包含一系列表达式，块中最后一个表达式的值就是整个块的值

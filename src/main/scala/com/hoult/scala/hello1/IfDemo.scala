@@ -1,4 +1,4 @@
-package com.hoult.scala.hello
+package com.hoult.scala.hello1
 
 object IfDemo {
   def main(args: Array[String]): Unit = {

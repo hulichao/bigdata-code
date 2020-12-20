@@ -11,8 +11,35 @@
     <properties>
         <spark.version>2.3.2</spark.version>
         <scala.version>2.11</scala.version>
+        <scala.compat.version>2.11</scala.compat.version>
+        <akka.version>2.4.17</akka.version>
     </properties>
     <dependencies>
+        <!-- 添加akka的actor依赖 -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-actors</artifactId>
+            <version>2.11.8</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_2.11</artifactId>
+            <version>2.3.16</version>
+        </dependency>
+        <!-- 添加akka的actor依赖 -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_${scala.version}</artifactId>
+            <version>${akka.version}</version>
+        </dependency>
+        <!-- 多进程之间的Actor通信 -->
+        <!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-remote -->
+        <dependency>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-remote_${scala.compat.version}</artifactId>
+            <version>${akka.version}</version>
+        </dependency>
         <!--  spark相关8个包-->
         <dependency>
             <groupId>org.apache.spark</groupId>

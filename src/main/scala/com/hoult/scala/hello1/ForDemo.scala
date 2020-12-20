@@ -1,4 +1,4 @@
-package com.hoult.scala.hello
+package com.hoult.scala.hello1
 
 /**
  * while do while 与java类似，但是没有for
@@ -59,8 +59,23 @@ object ForDemo {
     println("#######遍历字符串###########")
     val message = "hello spark"
     for (s <- message) {
+      println(message(0))
       print(s + "\t")
     }
+
+    //使用breakable 和 break 终止循环，需要导入scala.util.control.Breaks包
+    import scala.util.control.Breaks._
+
+    var res = 0
+    breakable {
+      for (i <- 1 until 10) {
+        if (i == 5) break()
+        res += i
+      }
+
+    }
+    println(res)
+
 
   }
 
