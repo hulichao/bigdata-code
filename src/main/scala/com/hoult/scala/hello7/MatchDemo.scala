@@ -38,7 +38,8 @@ object MatchDemo {
 //    typeMathc("Array(1,2)")
 
 //    listMatch()
-    tupleMatch()
+//    tupleMatch()
+    arrayMatch(Array(10,2,3))
   }
 
   //类型匹配
@@ -56,7 +57,8 @@ object MatchDemo {
     x match {
       case Array(1,x,y) => println(x + ":" + y)
       case Array(1) => println("only 1 ....")
-      case Array(1,_*) => println("1 开头的")
+      case Array(_*) => println("1 开头的")
+      case _: Array[Int] => println("整个数组")
       case _ => println("nothing....")
     }
 
@@ -77,6 +79,7 @@ object MatchDemo {
     }
   }
 
+  //元组匹配
   def tupleMatch() = {
     val tuple = (5, 3, 7)
     tuple match {

@@ -4,6 +4,7 @@ package com.hoult.scala.hello4
 class Dog {
   private var _leg = 0
   def leg: Int = _leg
+
   def leg_=(newLag: Int) = {
     _leg = newLag
   }

@@ -9,6 +9,10 @@ class Person {
   //注意是var 不是val
   var age: Int = _
 
+  def age_(ne: Int) = {
+    age = ne
+  }
+
   //注意null 要特别赋值的化，要i指定类型，否则会被任务是Null类似 val add: NUll = null
   val add: String = null
 
