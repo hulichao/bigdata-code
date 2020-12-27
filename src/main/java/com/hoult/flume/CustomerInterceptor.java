@@ -7,7 +7,6 @@ import org.apache.flume.Context;
 import org.apache.flume.Event;
 import org.apache.flume.event.SimpleEvent;
 import org.apache.flume.interceptor.Interceptor;
-import org.apache.parquet.Strings;
 import org.junit.Test;
 
 import java.time.Instant;
@@ -37,9 +36,9 @@ public class CustomerInterceptor implements Interceptor {
         try {
             String jsonStr = bodyArr[6];
 //            System.out.println("jsonStr:" + jsonStr);
-            if (Strings.isNullOrEmpty(jsonStr)) {
-                return null;
-            }
+//            if (Strings.isNullOrEmpty(jsonStr)) {
+//                return null;
+//            }
             // 将 string 转成 json 对象
             JSONObject jsonObject = JSON.parseObject(jsonStr);
             String timestampStr = jsonObject.getJSONObject("app_active").getString("time");
