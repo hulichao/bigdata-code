@@ -24,10 +24,11 @@ public class HdfsClient {
     @Before
     public void init() throws IOException, InterruptedException,
             URISyntaxException {
+        System.setProperty("hadoop.home.dir", "E:\\hu_devlope\\hadoop-2.9.2");
         // 配置在集群上运行
         // configuration.set("fs.defaultFS", "hdfs://linux121:9000");
         // FileSystem fs = FileSystem.get(configuration);
-        fs = FileSystem.get(new URI("hdfs://linux121:9000"),
+        fs = FileSystem.get(new URI("hdfs://linux121:8899"),
                 configuration, "root");
     }
 
