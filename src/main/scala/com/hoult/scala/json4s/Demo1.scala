@@ -2,6 +2,7 @@ package com.hoult.scala.json4s
 import org.json4s._
 import org.json4s.JsonDSL._
 import org.json4s.native.JsonMethods._
+import org.json4s.native.Serialization
 
 object Demo1 {
   def main(args: Array[String]): Unit = {
@@ -182,5 +183,11 @@ object Demo1 {
 //      val kvList = for (JObject(key, value) <- parse(obj)) yield (key, value)
 //      println("obj : " + kvList.mkString(","))
     }
+
+
+    // 11.序列化，即对象转字符串
+    val jsonMap2 = ("name" -> "joe")
+    val str2 = Serialization.write(jsonMap2)
+    println(str2)
   }
 }

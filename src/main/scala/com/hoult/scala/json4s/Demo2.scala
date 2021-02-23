@@ -7,9 +7,6 @@ object Demo2 {
   def main(args: Array[String]): Unit = {
     // 11.对象转json
     val jsonMap = ("name" -> "joe")
-
-//    implicit val f = org.json4s.DefaultFormats
-
     implicit val formats = Serialization.formats(NoTypeHints)
     val str = Serialization.write(jsonMap)
     println(str)
