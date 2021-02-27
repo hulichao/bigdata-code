@@ -1,0 +1,1 @@
+sort -t : -nrk 1,3 sort.txt
