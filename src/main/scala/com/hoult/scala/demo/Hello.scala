@@ -13,8 +13,8 @@ object Hello {
     //php版本输出
     println(s"php 版本输出 v1=$v1 v2 = $v2")
 
-    val `sssssssssfsdafdsafd` = "ddd"
-    println(`sssssssssfsdafdsafd`)
+    val `sssssssssfsdafds_+asdfd` = "ddd"
+    println(`sssssssssfsdafds_+asdfd`)
 
     def f1(): Int = {100}
 

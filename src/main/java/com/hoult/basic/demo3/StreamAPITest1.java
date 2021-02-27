@@ -1,13 +1,14 @@
 package com.hoult.basic.demo3;
 
-import com.hoult.demo2.Employee;
-import com.hoult.demo2.EmployeeData;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
+
+import com.hoult.basic.demo2.Employee;
+import com.hoult.basic.demo2.EmployeeData;
 
 /**
  * 测试Stream的中间操作

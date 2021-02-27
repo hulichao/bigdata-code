@@ -1,7 +1,8 @@
 package com.hoult.basic.demo3;
 
-import com.hoult.demo2.Employee;
-import com.hoult.demo2.EmployeeData;
+import com.hoult.basic.demo2.Employee;
+import com.hoult.basic.demo2.EmployeeData;
+
 import org.junit.Test;
 
 import java.util.Arrays;

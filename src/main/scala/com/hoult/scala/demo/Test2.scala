@@ -4,7 +4,7 @@ object Test {
   def main(args: Array[String]): Unit = {
     val list: List[Int] = List(1, 5, 8, 3, 7)
 
-    test("xx")
+    test("xx")("yy")
   }
 
   def test(a: String)(b: String) = {
