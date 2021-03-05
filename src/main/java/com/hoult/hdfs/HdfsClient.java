@@ -40,7 +40,7 @@ public class HdfsClient {
     public void testMkdirs() throws IOException, InterruptedException,
             URISyntaxException {
         // 2 创建目录
-//        fs.mkdirs(new Path("/test"));
+        fs.mkdirs(new Path("/test"));
         // 3.删除目录
         fs.deleteOnExit(new Path("/tmp"));
         // 4 关闭资源
