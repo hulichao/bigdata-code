@@ -16,6 +16,10 @@ object ListDemo {
     lst3.tail //返回除第一个元素外的其它元素构成的新列表
     lst3.init //返回除最后一个元素外的其它元素构成的新列表
     lst3.last //返回最后一个元素
+
+    // diff
+    println(Array("1", "2", "3").diff(Array("2", "3")).mkString(","))
+
   }
 
   // 快排
