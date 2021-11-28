@@ -33,9 +33,8 @@
         <!-- Test Dependency -->
         <dependency>
             <groupId>org.scalatest</groupId>
-            <artifactId>scalatest-funsuite_${scala.compat.version}</artifactId>
-            <version>3.2.10</version>
-            <scope>test</scope>
+            <artifactId>scalatest_2.12</artifactId>
+            <version>3.1.1</version>
         </dependency>
         <!-- 添加akka的actor依赖 -->
         <dependency>
