@@ -4,15 +4,37 @@ import scala.util.Random
 
 object MatchDemo {
   def main(args: Array[String]): Unit = {
-    val ch = '+'
+
+
+
+    typeConst("+")
+    typeString
+    println(typeIf('+'))
+    typeMathc("Array(1,2)")
+
+    listMatch()
+    tupleMatch()
+    arrayMatch(Array(10,2,3))
+
+    println("sssssssssss " + isIntIntMap(Map("1" -> 1)))
+    println("array1 " + isArrayString(Array("bay")))
+    println("array2 " + isArrayString(Array(1)))
+    println("array3 " + matchVal((1, Array(1))))
+
+  }
+
+  def typeConst(ch: Any) = {
+//    val ch = '+'
 
     ch match {
       case '+' => println("加")
       case '-' => println("jian")
       case _ => println("nothing")
     }
-    //字符串模式匹配
+  }
 
+  def typeString = {
+    //字符串模式匹配
     val content = Array("hello", "spark", "flink")
 
     val arr = Array("hadoop", "zookeeper", "spark")
@@ -23,9 +45,10 @@ object MatchDemo {
       case "spark" => println("大数据分布式内存计算框架...")
       case _ => println("我不认识你...")
     }
-
+  }
+  def typeIf(character: Any) = {
     //守卫式
-    val character = 's'
+//    val character = 's'
     val num = character match {
       case '+' => 1
       case '-' => 2
@@ -33,15 +56,8 @@ object MatchDemo {
       case _ => 9 //只会执行一行
       case _ => 4
     }
-    println(character + " " + num)
-
-//    typeMathc("Array(1,2)")
-
-//    listMatch()
-//    tupleMatch()
-    arrayMatch(Array(10,2,3))
+    num
   }
-
   //类型匹配
   def typeMathc (x: Any) = {
     x match {
@@ -61,7 +77,6 @@ object MatchDemo {
       case _: Array[Int] => println("整个数组")
       case _ => println("nothing....")
     }
-
   }
 
   //list模式匹配
@@ -88,4 +103,24 @@ object MatchDemo {
       case _ => println("else")
     }
   }
+
+  // 泛型擦除测试map
+  def isIntIntMap(x: Any) = x match {
+    case m: Map[Int, Int] => true
+    case _ => false
+  }
+
+  // 泛型擦除测试 array
+  def isArrayString(x: Any) = x match {
+    case m: Array[String] => "yes"
+    case _ => "no"
+  }
+
+  // 变量绑定模式
+  def matchVal(x: Any) = x match {
+    case (a, b @ Array(Int)) => s"tuple a, array[string], $a, ${b}"
+    case _ => "nothins"
+  }
+
+
 }

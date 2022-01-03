@@ -9,6 +9,7 @@ object SetDemo {
     set.drop(1)
     // 引入可变的Set
     import scala.collection.mutable.Set
+    Set.empty
     val mutableSet = Set(4, 5, 6)
     // 增加元素、删除元素；执行成功返回true，否则返回false
     mutableSet.add(7)
